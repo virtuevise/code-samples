@@ -1,0 +1,92 @@
+.psubtitle {
+  font-size: 22px;
+  margin-bottom: 2px;
+  font-family: Barlow-Regular;
+}
+
+.pregular {
+  font-size: 20px;
+  margin-bottom: 2px;
+  font-family: Barlow-Regular;
+}
+.mat-focused .placeholder {
+  color: transparent;
+}
+
+ ::ng-deep .mat-form-field {
+  .mat-input-element {
+      color:#011154;
+      font-weight: 500 !important;
+    }
+
+
+  .mat-form-field-underline {   
+      background-color:#011154;
+  }
+
+}
+// mat-form-field  .label{
+//   font-size: 20px !important;
+// }
+
+mat-form-field{
+  width: 100% !important;
+  height: 5rem !important;
+  line-height: 3rem !important;
+}
+
+// mat-form-field.mat-form-field-should-float label {
+//   font-size: 15px;
+// }
+
+mat-form-field label {
+  font-size: 20px;
+}
+
+::ng-deep  .mat-datepicker-content .mat-calendar{
+  zoom: 0.75 !important;
+}
+.mat-input-element:disabled {
+  color: #011154;
+}
+
+::ng-deep .mat-input-element {
+  color: #011154;
+  font-weight: 500 !important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: #011154;
+  line-height: 3.5 rem !important;
+ }
+
+::ng-deep .mat-option-pseudo-checkbox .mat-pseudo-checkbox-checked{
+  background-color:#53b35e;
+} 
+
+// .mat-checkbox.mat-accent .mat-checkbox-inner-container {
+//     margin: 2px 8px auto 0;
+// }
+
+::ng-deep .mat-checkbox-layout .mat-checkbox-label {
+  font-size: 14px !important;
+  line-height: 3.5 rem !important;
+  margin-top: 10px;
+}
+
+::ng-deep .mat-form-field-label-wrapper {
+  font-size: 19.9px !important;
+}
+
+button {
+  width: 90%;
+  background-color: #18206c !important;
+  color: white;
+  border: solid 1px #18206c;
+  border-radius: 10px;
+  margin-bottom: auto;
+  font-family: Barlow-Regular;
+  font-size: 14px;
+  font-weight: 600;
+}

@@ -1,0 +1,29 @@
+  <mat-card *ngFor="let i of item; let indexOfelement=index;">
+    <div class=" ItemNumber">
+      {{"InvoiceItems.ITEM" | translate}} #{{indexOfelement+1}}
+    </div>
+    <mat-form-field appearance="standard">
+      <mat-label>{{"InvoiceItems.SERIAL" | translate}}</mat-label>
+      <input matInput [value]="i?.serialNumber" matInput name="Serial" readonly />
+    </mat-form-field>
+    
+    <mat-form-field appearance="standard">
+      <mat-label>{{"InvoiceItems.DESCRIPTION" | translate}}</mat-label>
+      <input matInput [value]="i?.description" matInput placeholder="Vat" name="Description"
+        readonly />
+    </mat-form-field>
+        <mat-form-field appearance="standard">
+      <mat-label>{{"InvoiceItems.PRICE" | translate}}</mat-label>
+      <input matInput [value]="i?.price" matInput name="Price" readonly />
+    </mat-form-field>
+    
+    <mat-form-field appearance="standard">
+      <mat-label>{{"InvoiceItems.QUANTITY" | translate}}</mat-label>
+      <input matInput matInput [value]="i?.quantity" name="Quantity" readonly />
+    </mat-form-field>
+    
+    <mat-form-field appearance="standard">
+      <mat-label>{{"InvoiceItems.TOTAL" | translate}}</mat-label>
+      <input matInput matInput [value]="i?.total" name="Total" readonly />
+    </mat-form-field>
+      </mat-card>

@@ -1,0 +1,52 @@
+<div class="card shadow mb-3">
+    <div class="container">
+        <nav class="navbar navbar-expand static-top ">
+
+            <div class="">
+                <img src="../../../assets/logo/5.png">
+            </div>
+
+            <ul class="navbar-nav ml-auto">
+                <!-- Nav Buttons -->
+                <button type="button" class="btn btn-nav btn-outline-warning mt-2" (click)="groupRequest()">
+                    <i class="fas fa-user-friends"></i>
+                    Group Request</button>
+                <button type="button" class="btn btn-nav btn-outline-secondary mt-2 ml-2 mr-5 "
+                    (click)="checkBalance(template,null)">
+                    Balance
+                    <i class="fas fa-rupee-sign"></i>
+                </button>
+                <li class="text-gray-700 fs-5 user-name">{{titleCaseName}}</li>
+                <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <img class="img-profile rounded-circle" src="../../../assets/img/undraw_profile.svg">
+                </a>
+                </li>
+                <!-- Nav Item - img -->
+                <div class="pt">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw logout-icon text-gray-500" (click)="logOut()" style='font-size:25px;'
+                        data-toggle="tooltip" data-placement="right" title="Logout"></i>
+                </div>
+            </ul>
+        </nav>
+        <ng-template #template>
+            <div class="modal-header">
+                <h6 class="modal-title pull-left text-secondary">Your Balance Is <i
+                        class="fas fa-rupee-sign text-secondary"></i></h6>
+                <button type="button" class="btn-close" aria-label="Close" (click)="modalRef?.hide()">
+                    <span aria-hidden="true" class="visually-hidden cross">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" data-keyboard="false" data-backdrop="static">
+                <div class="py-2">
+                    <form>
+                        <div class="container">
+                           
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>

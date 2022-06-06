@@ -1,0 +1,46 @@
+img.hamburger img.Language {
+    width: 22px;
+    height: 15px;
+}
+
+
+div.more {
+    position: fixed;
+    top: 0px;
+    bottom: 73px;
+    right: 5px;
+    width: 60%;
+    background-color: rgba(255, 255, 255, 0.96);
+    line-height: 2.5rem;
+    border-radius: 10px;
+    padding: 20px 20px 20px 10px;
+}
+
+div.LanguageDiv {
+    position: absolute;
+    top: 0px;
+    bottom: 73px;
+    right: 70px;
+    background-color: rgba(255, 255, 255, 0.96);
+    width: 100px;
+    height: 90px;
+    border-radius: 10px;
+    padding: 5px 5px 5px 5px;
+}
+
+div.rightMenu {
+    width: 50%;
+    height: 40%;
+    float: right;
+
+}
+
+.build-string{
+    position: absolute;
+    bottom: 0px;
+    font-size: 10px;
+    p{
+        color: black;
+        margin-bottom: 0rem !important;
+    }
+}

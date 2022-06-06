@@ -1,0 +1,26 @@
+<div class="d-flex flex-column">
+  <div class="mt-2 mb-3">
+    <h1 class="font-light">{{"Profile.GREETING1" | translate}} {{memberName}},</h1>
+    <h3 class="font-regular">{{"Profile.GREETING2" | translate}}</h3>
+  </div>
+
+
+  <ul class="navbar-nav mr-auto">
+      <li class="nav-item" [routerLinkActive]="['active']">
+       <u> <a class="nav-link font-medium font-link" mdbWavesEffect routerLink="/EazyPassComplete/{{status}}/no">{{"Profile.ITEM5" | translate}}<a class="font-regular font-link"><i>Eazy </i></a>Pass</a></u>
+      </li>
+      <li class="nav-item" [routerLinkActive]="['active']">
+          <u><a class="nav-link font-medium font-link" mdbWavesEffect routerLink="/tripDetails/{{status}}">{{"Profile.ITEM2" | translate}}</a></u>
+      </li>
+      <li class="nav-item" [routerLinkActive]="['active']">
+          <u> <a class="nav-link font-medium font-link" mdbWavesEffect routerLink="/memberConnectionDetails/{{status}}">{{"Profile.ITEM3" | translate}}</a></u>
+        </li>
+        <!-- <li class="nav-item" [routerLinkActive]="['active']">
+          <u> <a class="nav-link font-medium font-link" mdbWavesEffect routerLink="/PaymentSummary">{{"Profile.ITEM4" | translate}}</a></u>
+        </li> -->
+    </ul>
+    <button (click)="logout()">{{"Profile.ITEM6" | translate}}</button>
+
+
+</div>
+<!-- <img src="../../assets/elements/elements-earth-bkg.png" class="earth align-self-center"> -->

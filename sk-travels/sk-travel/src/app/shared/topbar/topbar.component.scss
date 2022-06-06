@@ -1,0 +1,18 @@
+//@import "bootstrap";
+
+.logoutbtn {
+    border: none;
+    color: white;
+    background-color: rgba(31, 84, 198, 0.717);
+    border-radius: 3px;
+}
+
+.logoutbtn:hover {
+    background-color: rgba(31, 84, 198, 0.891);
+    transition: .50s;
+}
+
+i:hover {
+    cursor: pointer;
+    color: black !important;
+}

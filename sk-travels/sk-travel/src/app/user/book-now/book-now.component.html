@@ -1,0 +1,176 @@
+<div class="container ">
+    <div class="bookNowTable mt-1">
+        <div class="card">
+            <div>
+                <table id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Airline</th>
+                            <th>Destination</th>
+                            <th>Flight Type</th>
+                            <th>Date</th>
+                            <th>Flight Code</th>
+                            <th>Time</th>
+                            <th>Available Seat</th>
+                            <th>PNR Code</th>
+                        </tr>
+                    </thead>
+                    <tbody class="mt-5">
+                        <tr class="text-center" *ngFor="let data of searchedListData">
+                            <td class="flightImg"><img
+                                    src="../../../assets/img/spicejet-logo-393873A1AE-seeklogo.com.png"><br>
+                                {{data.flightName }}
+                            </td>
+                            <td><i class="fas fa-solid fa-plane rotate-icon"></i>{{data.flightFrom}} //
+                                {{data.flightTo}}</td>
+                            <td>{{data.flightType}}</td>
+                            <td class="text-color-green">{{data.validTillDate}}</td>
+                            <td class="text-color-green">{{data.flightCode}}</td>
+                            <td class="text-color-green">{{data.validTillTime}}</td>
+                            <td>{{data.availableSeat}}</td>
+                            <td class="text-size-2">{{data.pnrNo}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <form [formGroup]="bookNowForm">
+        <div class="card d-flex mt-4">
+            <div class="card-body">
+                <div class="d-flex">
+                    <i class="far fa-id-card pt-1"></i>
+                    <p class="text-muted pl-1">Details entered below are exactly as per Traveller's ID</p>
+                </div>
+                <hr>
+                <div class="row ">
+                    <div class="col-4">
+                        <label>Title</label>
+                        <select class="form-select" aria-label="Default select example" formControlName="title"
+                            [ngClass]="
+                        (bookNowForm.get('title')?.touched || 
+                        bookNowForm.get('title')?.dirty) && 
+                        bookNowForm.get('title')?.errors
+                        ? 'is-invalid' 
+                        : ''||  (bookNowForm.get('title')?.touched || 
+                        bookNowForm.get('title')?.dirty) && 
+                        !bookNowForm.get('title')?.invalid
+                        ? 'is-valid' 
+                        : '' " required>
+                            <option>Mr.</option>
+                            <option>MRs.</option>
+                        </select>
+                    </div>
+
+                    <div class="col-4">
+                        <label>First Name</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                placeholder="First Name" formControlName="firstName" [ngClass]="
+                                (bookNowForm.get('firstName')?.touched || 
+                                bookNowForm.get('firstName')?.dirty) && 
+                                bookNowForm.get('firstName')?.errors
+                                ? 'is-invalid' 
+                                : ''||  (bookNowForm.get('firstName')?.touched || 
+                                bookNowForm.get('firstName')?.dirty) && 
+                                !bookNowForm.get('firstName')?.invalid
+                                ? 'is-valid' 
+                                : '' " required>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <label>Last Name</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                placeholder="Last Name" formControlName="lastName" [ngClass]="
+                                (bookNowForm.get('lastName')?.touched || 
+                                bookNowForm.get('lastName')?.dirty) && 
+                                bookNowForm.get('lastName')?.errors
+                                ? 'is-invalid' 
+                                : ''||  (bookNowForm.get('lastName')?.touched || 
+                                bookNowForm.get('lastName')?.dirty) && 
+                                !bookNowForm.get('lastName')?.invalid
+                                ? 'is-valid' 
+                                : '' " required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card d-flex justify-content-center mt-3">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-4">
+                        <label>Email ID</label>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                placeholder="name@example.com" formControlName="email"
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [ngClass]="
+                                (bookNowForm.get('email')?.touched || 
+                                bookNowForm.get('email')?.dirty) && 
+                                bookNowForm.get('email')?.hasError('required')
+                                ? 'is-invalid' 
+                                : '' || 
+                                bookNowForm.get('email')?.getError('pattern') 
+                                ? 'is-invalid' 
+                                : '' ||  
+                                (bookNowForm.get('email')?.touched || 
+                                bookNowForm.get('email')?.dirty) && 
+                                !bookNowForm.get('email')?.invalid
+                                ? 'is-valid' 
+                                : '' " required>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <label>Phone No.</label>
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="exampleFormControlInput1"
+                                placeholder="Phone No" formControlName="contact" pattern="^((\\+91-?)|0)?[0-9]{10}$"
+                                [ngClass]="
+                                (bookNowForm.get('contact')?.touched || 
+                                bookNowForm.get('contact')?.dirty) && 
+                                bookNowForm.get('contact')?.hasError('required')
+                                ? 'is-invalid' 
+                                : ''||  
+                                bookNowForm.get('contact')?.getError('pattern') 
+                                ? 'is-invalid' 
+                                : '' ||  
+                                (bookNowForm.get('contact')?.touched || 
+                                bookNowForm.get('contact')?.dirty) && 
+                                !bookNowForm.get('contact')?.invalid
+                                ? 'is-valid' 
+                                : '' " required>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <label>Internal Note</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                placeholder="Remarks/Note" formControlName="internalNote" [ngClass]="
+                                (bookNowForm.get('internalNote')?.touched || 
+                                bookNowForm.get('internalNote')?.dirty) && 
+                                bookNowForm.get('internalNote')?.errors
+                                ? 'is-invalid' 
+                                : ''||  (bookNowForm.get('internalNote')?.touched || 
+                                bookNowForm.get('internalNote')?.dirty) && 
+                                !bookNowForm.get('internalNote')?.invalid
+                                ? 'is-valid' 
+                                : '' " required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row float-right mt-3">
+            <div>
+                <button type="button" class="btn btn-primary" [disabled]="!bookNowForm.valid"
+                    (click)="onSubmit()">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

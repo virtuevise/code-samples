@@ -1,0 +1,41 @@
+.main_body {
+    height: 595px;
+}
+
+.button button {
+    margin-top: 4.8em;
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 490px;
+    overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+}
+
+label {
+    color: rgb(72, 72, 72);
+}
+
+.action-button {
+    border: none;
+    background: white;
+    background-color: transparent;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #858796;
+}
+
+.table-bordered {
+    border: 1px solid #e3e6f0;
+}
+
+:host ::ng-deep tag-input delete-icon {
+    height: 22px;
+}

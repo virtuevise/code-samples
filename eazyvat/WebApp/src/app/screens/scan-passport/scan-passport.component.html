@@ -1,0 +1,43 @@
+<div class=" d-flex flex-column text-center justify-content-center">
+
+  <div class="text-center">
+    <img src="../../assets/elements/elements-wizard-1.png" *ngIf="!status">
+    <h1 class="font-subtitle" *ngIf="status">
+      {{"EazyPass2.TEXT4" | translate}}<i>Eazy </i><strong>Pass</strong>
+    </h1>
+  </div>
+
+  <p class="p-2 font-regular-large text-center">
+    {{"EazyPass2.TEXT1" | translate}}
+  </p>
+</div>
+
+<div class="backgroundPass" id="container" *ngIf="!showWebcam">
+  <img src="../../../assets/elements/elements-passport.png" alt="" *ngIf="IsShowImgPass">
+  <!-- <video id="video" autoplay="" *ngIf="IsShowVideo"></video> -->
+</div>
+
+<div class="camera-align set-button" *ngIf="showWebcam">
+  <!-- <div class="w-100 d-flex justify-content-center">
+    <video id="video" width="330" height="360" autoplay=""></video>
+  </div>
+  <canvas id="canvas" style="display: none;" width="330" height="360"></canvas> -->
+  <webcam [height]="300" [width]="250" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
+  *ngIf="showWebcam" [switchCamera]="nextWebcamObservable"></webcam>
+  <!-- <button class="photo-button" (click)="takeSnapshot()">Take Picture</button> -->
+  <button _ngcontent-vvo-c123="" type="button" class="takebutton ng-star-inserted" (click)="takeSnapshot()">{{"EazyPass2.BUTTON2" | translate}}</button>
+  <button class="takebutton ng-star-inserted mt-3" (click)="changeWebCame(true)">{{"EazyPass2.BUTTON3" | translate}}</button>
+</div>
+
+  <div class="text-center  mt-5">
+    <!-- <a class="mt-3" (click)="tempScanPassport()"><button type="button" class="btn" *ngIf="IsShowImgPass"> {{"EazyPass2.BUTTON1" | translate}}</button></a> -->
+     <a class="mt-3" (click)="OpenCamera()"><button type="button" class="takebutton" *ngIf="!showWebcam"> {{"EazyPass2.BUTTON1" | translate}}</button></a>
+    <!-- <a class="mt-3"  routerLink="/accountDetails/{{status}}"><button type="button" class="btn" *ngIf="IsShowVideo"> {{"EazyPass2.BUTTON2" | translate}}</button></a> -->
+    <a class="mt-3" (click)="NextStep()"><button type="button" class="takebutton" *ngIf="IsShowVideo"> {{"EazyPass2.BUTTON2" | translate}}</button></a>
+  </div>
+
+ 
+
+   
+  
+  

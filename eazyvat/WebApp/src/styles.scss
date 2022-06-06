@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+@import "assets/style/layout.scss";
+@import "assets/style/fonts.scss";
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+html{margin:0 !important; padding:0 !important; height:100%;}
+body{margin:0 !important; padding:0 !important; height:100%;}
+app-root {
+  height: 100% !important;
+  width: 100% !important;
+  overflow-x: hidden;
+}
+
+.mat-dialog-container {
+  box-shadow: none !important;
+  background:none !important;
+  color:none !important;
+}
+/* width: 100%;
+margin: 0;
+padding: 0;
+background-color:#000
+top: 0;
+left: 0; */

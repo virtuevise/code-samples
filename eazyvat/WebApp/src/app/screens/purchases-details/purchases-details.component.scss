@@ -1,0 +1,82 @@
+input {
+  font-family: Barlow-Regular;
+  color: #011154;
+  font-size: 16px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+div.linksInvoice {
+  /*   border: solid 1px black; */
+  width: 100%;
+  height: 120px;
+}
+
+button {
+  width: 90%;
+  background-color: #18206c !important;
+  color: white;
+  border: solid 1px #18206c;
+  border-radius: 10px;
+  margin-bottom: auto;
+  font-family: Barlow-Regular;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+div.InvoicePhoto {
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  background-color: #e9e9e9;
+  margin: 0 auto;
+}
+
+div.browsing {
+  width: 50px;
+  height: 170px;
+}
+
+img.displayed {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 70px 20px 20px 20px;
+}
+
+div.photo {
+  width: 200px;
+  height: 170px;
+}
+
+div.circlelightBlue {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #dcdcdc;
+}
+
+div.circleBlue {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #18206c;
+}
+
+div.ThreeCircles {
+  width: 30%;
+  margin: 0 auto;
+}
+
+::ng-deep .mat-form-field-wrapper {
+  padding-bottom: 0 !important;
+}
+
+
+::ng-deep .mat-form-field{
+  width:350px;
+  display: inline;
+}

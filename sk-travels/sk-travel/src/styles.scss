@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+ @import "bootstrap";
+
+*{
+    user-select: none;
+}
+label{
+    font-size: 14px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+.timepicker-overlay{
+    z-index: 999999 !important;
+}
+ .timepicker-backdrop-overlay{
+    z-index: 999999 !important;
+}
+
+.timepicker__header {
+    background-color: #4e73df !important;
+  }
+  .timepicker-dial__control {
+    font-size: 24px !important;
+  }
+
+  .timepicker-dial {
+    background-color: #4e73df !important;
+  }

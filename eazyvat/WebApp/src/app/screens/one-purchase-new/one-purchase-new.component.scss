@@ -1,0 +1,56 @@
+div.onePurchaseNew{
+    width:325px;
+    height: 120px;
+    margin: 20px 34px 0px 0px;
+    border-radius: 20px;
+    box-shadow: 0 4px 4px 0 rgba(106, 114, 124, 0.22);
+    border: solid 1px #3562fe;
+    background-color: #ffffff;  
+  }
+
+ div.logoShop {
+    width: 56px;
+    height:56px;
+    margin: 0 16px 14px 0;
+    padding: 14px 27px 14px 26px;
+    border: solid 1px black;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    color: white;
+    text-align: center;
+  }
+  img.logoNoShop{
+
+    display: inline-block;
+    position: relative;
+    text-align: center;
+  }
+
+  div.content{
+ width:80%;
+ height: 50%;
+ margin: auto; 
+ position: absolute;
+ top:25px;  
+ left:35px;
+  
+  }
+
+ div.details{
+    width:100%;
+
+  }
+  img.new{
+    width:60px;
+    height:60px;
+    float: right;
+    
+  }
+  #container {
+
+    position: relative;
+  }
+
+ 
+     

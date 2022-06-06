@@ -1,0 +1,30 @@
+.my-custom-scrollbar {
+    position: relative;
+    height: 490px;
+    overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+}
+
+.action-button {
+    border: none;
+    background: white;
+    background-color: transparent;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #858796;
+}
+
+.table-bordered {
+    border: 1px solid #e3e6f0;
+}
+
+::ng-deep .role-modal-custom-style {
+    max-width: 500px !important;
+    max-height: 500px !important;
+} 

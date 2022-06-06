@@ -1,0 +1,136 @@
+<div class="form-section d-flex flex-column justify-content-around">
+
+    <div class="sticky">
+        <div class=" text-center" *ngIf="stripper">
+            <img src="../../assets/elements/elements-wizard-2.png">
+        </div>
+        <div class=" text-center" *ngIf="!stripper">
+            <img src="../../assets/elements/elements-wizard-1.png">
+        </div>
+        <p class="heading1" *ngIf="manage">
+            {{"EazyPass2.TEXT4" | translate}} <i>Eazy </i><strong>Pass</strong>
+        </p>
+        <div class="font-bold" *ngIf="!status">
+            <p class="heading2">{{"PassportReadError.HEADER" | translate}}</p>
+        </div>
+        <!-- <div class="mt-2 font-regular text-center font-bold" *ngIf="!manage">
+            <i>{{"EazyPass3.HEADER" | translate}}</i>
+        </div> -->
+        <div class="mt-2 font-green text-center" *ngIf="status">
+            <p>{{"EazyPass3.TEXT1" | translate}}</p>
+        </div>
+        <div *ngIf="!status">
+            <p class="heading3">{{"PassportReadError.TEXT1" | translate}}</p>
+        </div>
+
+        <div *ngIf="status">
+            <p class="heading3">{{"EazyPass3.TEXT2" | translate}}</p>
+        </div>
+        <div *ngIf="!status">
+            <p class="heading3">{{"PassportReadError.TEXT2" | translate}}</p>
+        </div>
+    </div>
+</div>
+<form #accountFrom="ngForm" (ngSubmit)="onClickSaveAccountDetails(accountFrom.value)">
+    <div class="form-section d-flex flex-column justify-content-around" *ngIf="viewMode">
+        <mat-form-field appearance="standard">
+            <mat-label>{{"EazyPass3.FIRST_NAME" | translate}}</mat-label>
+            <input matInput name="fname" [ngModel]="model?.FirstName" readonly />
+        </mat-form-field>
+
+
+        <mat-form-field appearance="standard">
+            <mat-label>{{"EazyPass3.LAST_NAME" | translate}}</mat-label>
+            <input matInput name="lname" [ngModel]="model?.LastName" readonly />
+        </mat-form-field>
+
+        <mat-form-field appearance="standard">
+            <mat-label>{{"EazyPass3.NATIONALITY" | translate}}</mat-label>
+            <input matInput name="nationality" [ngModel]="model?.Nationality" readonly />
+        </mat-form-field>
+
+        <mat-form-field appearance="standard">
+            <mat-label>{{"EazyPass3.PASSPORT_NO" | translate}}</mat-label>
+            <input matInput name="passportNum" [ngModel]="model?.PassportNumber" readonly />
+        </mat-form-field>
+
+        <mat-form-field appearance="standard">
+            <mat-label>{{"EazyPass3.DATE_OF_BIRTH" | translate}}</mat-label>
+            <input matInput [matDatepicker]="picker1" value="{{model.BirthDate}}" name="birthDate" readonly>
+            <mat-datepicker-toggle matSuffix [for]="picker1" disabled></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="standard">
+            <mat-label>{{"EazyPass3.DATE_ISSUED" | translate}}</mat-label>
+            <input matInput [matDatepicker]="picker2" name="issueDate" value="{{model.IssueDate}}" readonly>
+            <mat-datepicker-toggle matSuffix [for]="picker2" disabled></mat-datepicker-toggle>
+            <mat-datepicker #picker2 readonly></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="standard">
+            <mat-label>{{"EazyPass3.EXPIRATION_DATE" | translate}}</mat-label>
+            <input matInput [matDatepicker]="picker3" name="expiredOn" value="{{model.ExpiredOn}}" readonly>
+            <mat-datepicker-toggle matSuffix [for]="picker3" disabled></mat-datepicker-toggle>
+            <mat-datepicker #picker3 readonly></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+
+    <div class="form-section d-flex flex-column justify-content-around" *ngIf="!viewMode">
+        <mat-form-field appearance="standard">
+            <mat-label>{{"EazyPass3.FIRST_NAME" | translate}}</mat-label>
+            <input matInput name="FirstName" required ngModel />
+        </mat-form-field>
+
+
+        <mat-form-field appearance="standard">
+            <mat-label>{{"EazyPass3.LAST_NAME" | translate}}</mat-label>
+            <input matInput name="LastName" required ngModel />
+        </mat-form-field>
+
+
+        <mat-form-field appearance="standard">
+            <mat-label>{{"EazyPass3.NATIONALITY" | translate}}</mat-label>
+            <mat-select name="Nationality" required ngModel>
+                <mat-option [value]="countries.shortNameTree" *ngFor="let countries of country">{{countries.englishName}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="standard">
+            <mat-label>{{"EazyPass3.PASSPORT_NO" | translate}}</mat-label>
+            <input matInput name="PassportNumber" required ngModel />
+        </mat-form-field>
+
+
+        <mat-form-field appearance="standard">
+            <mat-label>{{"EazyPass3.DATE_OF_BIRTH" | translate}}</mat-label>
+            <input matInput [matDatepicker]="picker1" name="BirthDate" ngModel required readonly>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="standard">
+            <mat-label>{{"EazyPass3.DATE_ISSUED" | translate}}</mat-label>
+            <input matInput [matDatepicker]="picker2" name="IssueDate" ngModel required readonly>
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="standard">
+            <mat-label>{{"EazyPass3.EXPIRATION_DATE" | translate}}</mat-label>
+            <input matInput [matDatepicker]="picker3" name="ExpiredOn" ngModel required readonly>
+            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+            <mat-datepicker #picker3></mat-datepicker>
+        </mat-form-field>
+
+    </div>
+    <div class="text-center  mb-4">
+        <!--  <a class="mt-3" routerLink="/{{nextPage}}/{{status}}"><button type="button" class="btn">{{"EazyPass3.BUTTON1" |translate}}</button></a> -->
+        <!-- <a class="mt-3" routerLink="/{{nextPage}}"></a> -->
+        <button type="submit" class="btn" [disabled]="accountFrom.invalid">{{"EazyPass3.BUTTON1"
+            |translate}}</button>
+    </div>
+</form>

@@ -1,0 +1,33 @@
+<div class="d-flex flex-column">
+  <!-- <button mat-raised-button (click)="openInfo()">Info Message</button> -->
+  <!-- <button mat-raised-button (click)="openOps()">Oops message</button>
+  <button mat-raised-button (click)="openSuccess()">Success message</button>
+  <button mat-raised-button (click)="openError()">Error message</button> -->
+  <!-- <button mat-raised-button (click)="openDialog()">Pick one</button>
+  <button mat-raised-button (click)="openDialog()">Pick one</button>
+  <button mat-raised-button (click)="openDialog()">Pick one</button> -->
+   <div>
+    <img class="logo" [hidden]="!isShowLogo" src="../../../assets/elements/home/icons-splash-logo.png" alt="">
+  </div> 
+  <div class="mt-2 mb-3">
+    <h1 class="font-light">{{"Home.HELLO"  | translate}} {{userName}},</h1>
+    <h2 class="font-regular">{{"Home.GREETING" | translate}}</h2>
+  </div>
+  <div class="shop d-flex flex-column">
+    <img src="../../../assets/elements/home/shutterstock-768085978-1.png" alt="" routerLink="/maps" (click)="navigatetoshhoppage()">
+    <a class="font-regular" style="cursor: pointer;" (click)="navigatetoshhoppage()">{{"Home.SHOP" | translate}} ></a>
+  </div>
+  <div class="purchase mt-3 mb-3 d-flex flex-column">
+    <img src="../../../assets/elements/home/shutterstock-463316261-1.png" alt="" routerLink="/welcomeToEazyvat"  (click)="navigatetopurchasepage()">
+    <a class="font-regular" style="cursor: pointer;"  (click)="navigatetopurchasepage()">{{"Home.PURCHASES" | translate}} ></a>
+  </div>
+
+  <div class="text-center mb-4 learn">
+    <u><a href="https://eazyvat.com/explanation-vat-refund" target="_blank" class="font-semibold font-link">{{"Home.LEARN" | translate}}</a></u>
+  </div>
+</div>
+
+<!-- 
+  <img src="../../assets/elements/elements-earth-bkg@2x.png" class="earth align-self-center">  -->
+
+ 

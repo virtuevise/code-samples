@@ -1,0 +1,86 @@
+
+
+  div.backgroundPass{
+    width: 327px;
+    height: 225px;
+ 
+    border-radius: 10px;
+    background-color: #e9e9e9;
+    margin: auto;
+  }
+      
+     
+  
+  div.imgPass{
+   
+  padding: 0.5rem 0 0.5rem 1rem;
+  position: relative;
+  border-radius: 0px 0px 10px 10px;
+  top: -7px;
+    }
+
+    div.video{
+        width:"270";
+        height:"360";
+        padding: 0.5rem 0 0.5rem 1rem;
+        position: relative;
+        border-radius: 0px 0px 10px 10px;
+        top: -7px;
+          }
+  
+ #container {
+   position: relative;
+          }
+  img.pass{
+    position: absolute;
+    z-index:10;
+    top:70px;
+    left:30px;
+  }
+  .camera-align {
+    display: flex;
+      flex-direction: column;
+      align-items: center;
+  } 
+        
+/*   .set-button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+   */
+ 
+    .takebutton {
+      width:90%;
+      background-color: #18206c !important;
+      color: white; 
+      border: solid 1px #18206c !important;
+      border-radius: 10px; 
+      margin-bottom: auto;
+      font-family: Barlow-Regular;
+      font-size: 14px;
+      font-weight: 600;
+      } 
+         .photo-button{
+    width:50%;
+    height: 40px;
+         } 
+         @media all and (max-width:500px) {
+          .photo-button{
+    width:40%;
+    height: 50px;
+          }
+    }
+    .takebutton:hover {
+      color:white;
+      text-decoration: none;}
+      .btn-primary{
+        background-color: #18206c !important;
+        color: white; 
+        border: solid 1px #18206c;
+        width:90%;
+        border-radius: 10px;
+      }
+  
+  
+  

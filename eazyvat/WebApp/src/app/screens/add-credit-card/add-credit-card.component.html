@@ -1,0 +1,54 @@
+<form class="pt-3 p-3  d-flex flex-column justify-content-between" [formGroup]="cardForm" (ngSubmit)="SubmitData()">
+
+  <div class="sticky mb-5">
+  <div class="text-center" *ngIf="!status">
+    <h1 class="font-subtitle-bold">
+      {{"SignUp6.HEADER" | translate}}
+    </h1>
+    <p class="font-regular-large">{{"SignUp6.TEXT1" | translate}}</p>
+  </div>
+
+  <h4 class="sticky font-regular" *ngIf="status">{{"AddPayment.HEADER" | translate}}</h4>
+</div>
+
+  <mat-form-field class="mt-5 pt-5">
+    <!-- <label class="font-lightBlue">{{"AddPayment.TYPE" | translate}}</label> -->
+    <mat-label>{{"AddPayment.TYPE" | translate}}</mat-label>
+    <!-- <mat-select class="langSelect" name="optionPayment" [placeholder]="'AddPayment.CARD'  | translate" required> -->
+    <mat-select class="langSelect" name="optionPayment" required>
+    <mat-option [value]="'AddPayment.CARD'">{{"AddPayment.CARD" | translate}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <mat-form-field class="pt-4">
+    <label class="font-lightBlue">{{"AddPayment.CARD_NO" | translate}}</label>
+    <input matInput name="CreditCardNumber" required formControlName="CardNumber" #CreditCardNumber type="number"/>
+  </mat-form-field>
+<!-- 
+  <mat-form-field class="pt-4">
+    <label class="font-lightBlue">{{"AddPayment.EXPIRY" | translate}}</label>
+    <input matInput name="ExpiryDate" required formControlName="ExpiryDate" maxlength="5" (keyup)=changeSlash(ExpiryDate.value.length) #ExpiryDate />
+  </mat-form-field> -->
+
+  <mat-form-field class="pt-4">
+    <label class="font-lightBlue">{{"AddPayment.EXPIRY" | translate}}</label>
+    <input matInput  name="ExpiryDate" required appInputMask formControlName="ExpiryDate"  maxlength="5" #ExpiryDate/>
+  </mat-form-field>
+
+  <mat-form-field class="pt-4">
+    <label class="font-lightBlue">{{"AddPayment.CVV" | translate}}</label>
+    <input matInput name="cvv" maxlength="3" required formControlName="CVV" #cvv type="number"/>
+  </mat-form-field>
+  <div class="text-center mt-2 mb-1">
+    <a class="mt-3" (click)="onSaveUpdatePayment()" *ngIf="!status"><button [disabled]="(CreditCardNumber.value.length === 0 || ExpiryDate.value.length === 0 || cvv.value.length === 0)"  type="button" class="btn btn-primary">{{"AddPayment.BUTTON1" |translate}}</button></a>
+    <a class="mt-3" (click)="onSaveUpdatePayment()" *ngIf="status"><button [disabled]="(CreditCardNumber.value.length === 0 || ExpiryDate.value.length === 0 || cvv.value.length === 0)"  type="button" class="btn btn-primary">{{"AddPayment.BUTTON2" |translate}}</button></a>
+  </div>
+</form>
+
+
+<div class="text-center mb-4 learn">
+  <u><a routerLink="" class="font-semibold font-link" (click)="savesession()">{{"AddPayment.Skip" |translate}}</a></u>
+</div>
+
+

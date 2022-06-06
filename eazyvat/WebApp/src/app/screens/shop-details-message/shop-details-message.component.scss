@@ -1,0 +1,36 @@
+div.shpMsg{
+    width:80%;
+    height:70%;
+    padding: 28px 26px 28px 27px;
+    border-radius: 20px;
+    box-shadow: 0 4px 4px 0 rgba(106, 114, 124, 0.22);
+    background-color: #ffffff;
+    margin: auto;
+}
+
+.text-left img{
+    height: .80rem !important;
+    width: .80rem !important;
+    position: relative !important;
+    bottom: 20px !important;
+    right: 8px !important;
+}
+
+
+
+div a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.appNavigation{
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+}
+
+::ng-deep .appNavigation{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    }
+    

@@ -1,0 +1,98 @@
+<div class="side-bar">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" routerLink="/admin/">
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fa fa-plane" aria-hidden="true"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3">Sk Travels</div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active" *ngIf="modules.dashboard">
+            <a class="nav-link" routerLink="/admin/">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Interface
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+
+         <!-- Nav Item - Add Roles -->
+
+         <li class="nav-item" *ngIf="modules.addRoles">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="true" aria-controls="collapseTwo" routerLink="/admin/add-roles">
+                <i class="fas fa-solid fa-plus"></i>
+                <span>Add Roles</span>
+            </a>
+        </li>
+
+        <!-- Nav Item - Add Roles END -->
+
+
+
+        <!-- Nav Item - Add users -->
+        <li class="nav-item" *ngIf="modules.users">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="true" aria-controls="collapseTwo" routerLink="/admin/all-users">
+                <i class="fas fa-solid fa-user"></i>
+                <span>User</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Components:</h6>
+                    <a class="collapse-item" href="buttons.html">Buttons</a>
+                    <a class="collapse-item" href="cards.html">Cards</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - Add users End -->
+
+        
+        <!-- Nav Item - location -->
+
+        <li class="nav-item" *ngIf="modules.location">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="true" aria-controls="collapseTwo" routerLink="/admin/location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Location</span>
+            </a>
+        </li>
+
+        <!-- Nav Item - location End-->
+
+        <!-- Nav Item - FlightInfoDetails -->
+        <li class="nav-item" *ngIf="modules.flightInfoDetails">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="true" aria-controls="collapseTwo" routerLink="/admin/flightInfoDetails">
+                <i class="fa fa-info-circle"></i>
+                <span>Flight Info Details</span>
+            </a>
+        </li>
+        <!-- Nav Item - FlightInfoDetails End -->
+
+        <!-- Nav Item - Flight -->
+        <li class="nav-item" *ngIf="modules.flightMapping">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="true" aria-controls="collapseTwo" routerLink="/admin/flight">
+                <i class="fas fa-solid fa-plane"></i>
+                <span>Flight Mapping</span>
+            </a>
+        </li>
+        <!-- Nav Item - Flight End-->
+
+    </ul>
+</div> 

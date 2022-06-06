@@ -1,0 +1,16 @@
+<div class="search d-flex flex-row">
+    <img src="../../../assets/icons/Map 01.svg" class="px-1 py-1">
+    <div class="listShop pr-1">
+        <mat-form-field>
+            <mat-select [placeholder]="'Shop.Search'  | translate" class="langSelect" name="shops" (selectionChange)="OnBuisnessShow($event)">
+                <mat-option *ngFor="let data of shopsVatData" [value]="data">{{data.name}} {{data.address}} {{data.city}}</mat-option>
+            </mat-select> 
+        </mat-form-field>        
+    </div>
+</div>
+
+<div class="map mt-5">
+    <agm-map [latitude]="latitude" [longitude]="longitude" (click)="mapClick()">
+        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+      </agm-map>
+</div>

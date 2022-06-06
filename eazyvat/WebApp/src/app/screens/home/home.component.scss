@@ -1,0 +1,30 @@
+img.logo{
+    position: fixed;
+    top:15px;
+    z-index: 10002;
+}
+
+div a{
+    display: block;
+}
+
+div.shop a,div.purchase a{
+background-color: white;
+padding: 0.5rem 0 0.5rem 1rem;
+position: relative;
+border-radius: 0px 0px 10px 10px;
+top: -7px;
+}
+
+/* img.earth{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  background-image: url('../../assets/elements/elements-earth-bkg@2x.png'); 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center bottom -100px;
+} */

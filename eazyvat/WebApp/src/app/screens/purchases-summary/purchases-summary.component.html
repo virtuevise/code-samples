@@ -1,0 +1,39 @@
+ <div class="d-flex flex-column">
+
+<div class="font-subtitle-bold" style="text-align: center;">{{"Purchases.HEADER" | translate}}</div>
+
+  <div class="d-flex flex-row justify-content-between Total">
+    <div class="font-regular-large-bold">{{"Purchases.TOTAL" | translate}}</div>
+    <div class="font-regular-large-bold mr-2">₪{{model?.Total}} </div>
+  </div> 
+  
+  
+
+  <div class="d-flex flex-row mt-3 justify-content-between  Estimated">
+    <div class="font-regular-large-bold">{{"Purchases.VAT_RECLAIM" | translate}}</div>
+    <div class="font-regular-large-bold">₪{{model?.VatReclaim}}
+      <a (click)="openInfo()"><img src="../../../assets/icons/icons-question-mark.png"></a>
+    </div>
+  </div>
+
+</div>
+<br>
+<br>
+
+<div *ngIf="IsShow">
+  <br>
+<br>
+<br>
+
+  <div class="d-flex flex-column justify-content-start text-center"> 
+   <h4 class="font-subtitle-bold">{{"PurchasesPopUp.TEXT4" | translate}}</h4>
+</div>
+
+</div>
+
+<div class="d-flex flex-column justify-content-between">
+ <app-one-purchase></app-one-purchase>
+ <!-- <a routerLink="/purchasesDetails"><app-one-purchase></app-one-purchase></a>
+ <a routerLink="/purchasesDetails"><app-one-purchase></app-one-purchase></a>
+ <a routerLink="/purchasesDetails"><app-one-purchase></app-one-purchase></a> -->
+</div>

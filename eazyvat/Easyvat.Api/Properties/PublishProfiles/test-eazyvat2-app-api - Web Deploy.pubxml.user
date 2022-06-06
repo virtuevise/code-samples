@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACRlk82aEVka/YQY1j5DGzwAAAAACAAAAAAAQZgAAAAEAACAAAAAI/30kfG6kzt8uJheGBYKX6/Y3fpd4PEjAoQcOK7pABAAAAAAOgAAAAAIAACAAAAA0KASNL2pN1XR2j+9aTojCLHrw2UxjUJqx0LFDFh+gGIAAAAB2BmNx9BV+9EQ1GkwEIbsbCu8f/15k8VrqLDwOcrnJW1UQ6nKW+RpW118Io67Oc7NhnRlggQmfuYiZyzyxMviK46irWZ/rHKBr/p6ZufrUJWG+l6PRs9MCAkrHtM2RI7cAQYa3MhBLDZsDxQqaRt2zxV3UXGzmt3wvrPfn2t33AUAAAABsdpz82mvGWJeh7eBdHg60H7JBwO45ugtq6HKN9zOS5qrJuGNyBN+V5TrXTpogWGzLP7e62Q4CIt2pUj97xKbp</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="EasyvatDbConfig">
+      <Value>Server=tcp:easyvatsql.database.windows.net,1433%3bInitial Catalog=testtest%3bPersist Security Info=False%3bUser ID=easyusr%3bPassword=Easy2020%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="EasyvatDbConfigDev">
+      <Value>Server=tcp:easyvatsql.database.windows.net,1433%3bInitial Catalog=testtest%3bPersist Security Info=False%3bUser ID=easyusr%3bPassword=Easy2020%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection //Timeout=30%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

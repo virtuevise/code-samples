@@ -1,0 +1,75 @@
+
+  // mat-form-field-underline {
+  //   display: none;
+  // }
+  
+  div.sticky{
+    background-color: #f6f6f6;
+    width: 80%;
+    margin-left: 34px;
+  }
+  .form-section{
+  margin-top: 1rem !important;
+  }
+
+  button {
+    width:90%;
+    background-color: #18206c;
+    color: white; 
+    border: solid 1px #18206c;
+    border-radius: 10px; 
+    margin-bottom: auto;
+    font-family: Barlow-Regular;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 25px;
+    } 
+        
+  .heading1{
+    text-align: center;
+    font-size: 24px;
+    margin-top: 2px;
+    margin-bottom: 1px;
+  }
+  .heading2{
+    text-align: center;
+    font-size: 22px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+  }
+  .heading3{
+    text-align: center;
+    font-size: 18px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+  }
+    ::ng-deep .mat-form-field-wrapper{
+      margin-bottom: -1.25em;
+   }
+      ::ng-deep .mat-form-field {
+        .mat-input-element {
+            color:#011154;;
+            font-weight: 500;
+        }
+      
+        .mat-form-field-underline {
+            background-color:#011154;
+        }
+      
+    }
+
+    .lable-color{
+      color: rgb(8, 8, 54);
+      font-size: 16px;
+    }
+
+    ::ng-deep .mat-datepicker-content {
+      position: relative;
+      top: 58px;
+     
+  }
+ 
+  mat-form-field {
+   line-height: 3rem !important;
+  }
+ 

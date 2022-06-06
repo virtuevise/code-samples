@@ -1,0 +1,171 @@
+<div class="container mt-2">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="#OneWay" id="oneWay-tab" data-bs-toggle="tab">ONEWAY</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#RoundTrip" id="roundTrip-tab" data-bs-toggle="tab">ROUND TRIP</a>
+        </li>
+    </ul>
+    <!-- ONEWAY TAB -->
+    <div class="tab-content mt-3">
+        <div id="OneWay" class="tab-pane active">
+            <form [formGroup]="userForm">
+                <div class="container">
+                    <div class="row flex-lg-nowrap">
+                        <div class="col-2">
+                            <label>Location From</label>
+                            <select class="form-select" aria-label="Default select example"
+                                formControlName="LocationFrom" [ngClass]="
+                                (userForm.get('LocationFrom')?.touched || 
+                                userForm.get('LocationFrom')?.dirty) && 
+                                userForm.get('LocationFrom')?.hasError('required')
+                                ? 'is-invalid' 
+                                : '' ||  (userForm.get('LocationFrom')?.touched || 
+                                userForm.get('LocationFrom')?.dirty) && 
+                                !userForm.get('LocationFrom')?.invalid
+                                ? 'is-valid' 
+                                : '' " required>
+                                <option *ngFor="let location of getLocations;index as i" [value]="location.id">
+                                    {{location.name}} ({{location.code}})
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="col-2">
+                            <label>Location To</label>
+                            <select class="form-select" aria-label="Default select example" formControlName="LocationTo"
+                                [ngClass]="
+                                (userForm.get('LocationTo')?.touched || 
+                                userForm.get('LocationTo')?.dirty) && 
+                                userForm.get('LocationTo')?.hasError('required')
+                                ? 'is-invalid' 
+                                : '' ||  (userForm.get('LocationTo')?.touched || 
+                                userForm.get('LocationTo')?.dirty) && 
+                                !userForm.get('LocationTo')?.invalid
+                                ? 'is-valid' 
+                                : '' " required>
+                                <option *ngFor="let location of getLocations;index as i" [value]="location.id">
+                                    {{location.name}} ({{location.code}})
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="col-2">
+                            <label>Travel Date</label>
+                            <input class="form-control" formControlName="TravelDate" id="date" type="date" [ngClass]="
+                            (userForm.get('TravelDate')?.touched || 
+                            userForm.get('TravelDate')?.dirty) && 
+                            userForm.get('TravelDate')?.errors
+                            ? 'is-invalid' 
+                            : ''||  (userForm.get('TravelDate')?.touched || 
+                            userForm.get('TravelDate')?.dirty) && 
+                            !userForm.get('TravelDate')?.invalid
+                            ? 'is-valid' 
+                            : '' " required>
+                        </div>
+
+                        <div class="col-2">
+                            <label>Adults(12 + Yrs)</label>
+                            <select class="form-select" aria-label="Default select example" formControlName="Adults"
+                                [ngClass]="
+                                    (userForm.get('Adults')?.touched || 
+                                    userForm.get('Adults')?.dirty) && 
+                                    userForm.get('Adults')?.hasError('required')
+                                    ? 'is-invalid' 
+                                    : '' ||  (userForm.get('Adults')?.touched || 
+                                    userForm.get('Adults')?.dirty) && 
+                                    !userForm.get('Adults')?.invalid
+                                    ? 'is-valid' 
+                                    : '' " required>
+                                <option [ngValue]="1">1</option>
+                                <option [ngValue]="2">2</option>
+                                <option [ngValue]="3">3</option>
+                            </select>
+                        </div>
+
+                        <div class="col-2">
+                            <label>Airline</label>
+                            <select class="form-select" aria-label="Default select example" formControlName="Airline"
+                                [ngClass]="
+                                    (userForm.get('Airline')?.touched || 
+                                    userForm.get('Airline')?.dirty) && 
+                                    userForm.get('Airline')?.hasError('required')
+                                    ? 'is-invalid' 
+                                    : '' ||  (userForm.get('Airline')?.touched || 
+                                    userForm.get('Airline')?.dirty) && 
+                                    !userForm.get('Airline')?.invalid
+                                    ? 'is-valid' 
+                                    : '' " required>
+                                <option *ngFor="let flight of FlightNameCode" [ngValue]="flight.flightId">
+                                    {{flight.flightName}}</option>
+                            </select>
+                        </div>
+
+                        <div class="col-2 row btn pt-btn">
+                            <button type="button" class="btn btn-warning search-btn" [disabled]="!userForm.valid"
+                                (click)="onSearch()">Search
+                                <i class="fab fa-sistrix"></i></button>
+                        </div>
+                    </div>
+
+                    <div class=" container d-flex mt-2">
+                        <div class="col-4 d-flex justify-content-start">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home"
+                                aria-selected="true">
+                                << PREV DAY</a>
+                        </div>
+
+                        <div class="col-4 d-flex justify-content-center">
+                            <span class="date-color">{{tableDate}}</span>
+                        </div>
+
+                        <div class="col-4 d-flex justify-content-end">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home"
+                                aria-selected="true">
+                                NEXT DAY >></a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- ROUNDTRIP TAB -->
+        <div id="RoundTrip" class="tab-pane fade" *ngIf="!showFlightList">
+            NOTHING HERE!
+        </div>
+    </div>
+</div>
+
+<hr class="container">
+
+<div *ngIf="showFlightList" class="container my-custom-scrollbar">
+    <div class="bookNowTable">
+        <div class="card">
+            <div>
+                <table id="dataTable" width="100%" cellspacing="0">
+                    <tbody class="mt-5">
+                        <tr class="text-center" *ngFor="let filter of filteredData">
+                            <td class="flightImg"><img
+                                    src="../../../assets/img/spicejet-logo-393873A1AE-seeklogo.com.png"><br>
+                                {{filter.flightName }}  
+                            </td>
+                            <td><i class="fas fa-solid fa-plane rotate-icon"></i>{{filter.flightFrom}} //
+                                {{filter.flightTo}}</td>
+                            <td>{{filter.flightType}}</td>
+                            <td class="text-color-green">{{filter.validTillDate}}</td>
+                            <td class="text-color-green">{{filter.flightCode}}</td>
+                            <td class="text-color-green">{{filter.validTillTime}}</td>
+                            <td>{{filter.availableSeat}}</td>
+                            <td class="text-size">PNR Code<br>
+                                <span class="text-size-2">{{filter.pnrNo}}</span>
+                            </td>
+                            <td><button type="button" class="btn btn-danger" id="msgToSibling" name="msgToSibling"
+                                    (click)="onBookNow()">Book Now</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

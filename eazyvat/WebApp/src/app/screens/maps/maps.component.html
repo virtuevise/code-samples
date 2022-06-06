@@ -1,0 +1,69 @@
+<!-- <div class="search d-flex flex-row">
+  <img src="../../../assets/icons/Map 01.svg" class="px-1 py-1">
+  <div class="listShop pr-1">
+    <form>
+      <mat-form-field appearance="fill">
+        <mat-label>Vat Free Shop</mat-label>
+        <input
+          type="text"
+          placeholder="Enter Address"
+          aria-label="Vat Free Shop"
+          matInput
+          [formControl]="myControl"
+          [matAutocomplete]="auto"
+        >
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option.fullAddress"
+            (click)="openPopUpDetailsShop(option)">
+            {{option.fullAddress}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </div>
+</div>
+<div class="map mt-5">
+  <agm-map [latitude]="latitude" [longitude]="longitude" [usePanning]="true" [zoom]="zoom">
+    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+  </agm-map>
+</div> -->
+
+
+<div class="search d-flex flex-row">
+  <img src="../../../assets/icons/Map 01.svg" class="px-1 py-1">
+  <div class="listShop pr-1">
+    <form>
+      <mat-form-field appearance="fill">
+        <mat-label>{{"Shop.Search" | translate}}</mat-label>
+        <input
+          type="text"
+          placeholder="Enter Address"
+          aria-label="Vat Free Shop"
+          matInput
+          [formControl]="myControl"
+          [matAutocomplete]="auto"
+        >
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option.fullAddress"
+            (click)="openPopUpDetailsShop(option)">
+            {{option.fullAddress}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+      <!-- <mat-form-field>
+          <mat-select [placeholder]="'Shop.Search'  | translate" class="langSelect" name="shops" (selectionChange)="OnBuisnessShow($event)">
+              <mat-option *ngFor="let data of shopsVatData" [value]="data">{{data.name}} {{data.address}} {{data.city}}</mat-option>
+          </mat-select> 
+      </mat-form-field> -->
+  </div>
+</div>
+<div class="map mt-4">
+  
+  <!-- <agm-map #AgmMap (zoomChange)="triggerResize()" (centerChange)="triggerResize()" (boundsChange)="triggerResize()" (fitBounds)="triggerResize()" [latitude]="this.latitude" [longitude]="this.longitude" [zoom]="zoom">
+    <agm-marker [latitude]="this.latitude" [longitude]="this.longitude"></agm-marker>
+  </agm-map> -->
+  <agm-map #AgmMap [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" [disableDefaultUI]="true" (mapReady)="ready($event)" >
+    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+  </agm-map>
+</div>

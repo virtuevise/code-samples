@@ -1,0 +1,46 @@
+<form class="pt-3 p-3">
+  
+  <div class="text-center">
+   <img src="../../assets/elements/elements-wizard-2.png" *ngIf="!status">
+    <p class="heading1" *ngIf="status">
+      {{"Contact.HEADER" | translate}}
+    </p>
+     
+  
+     <p class="heading2">
+       {{"Contact.TEXT1" | translate}}
+     </p>
+   </div> 
+ 
+      <mat-form-field appearance="standard">
+         <mat-label> {{"Contact.EMAIL" | translate}}</mat-label>
+         <input matInput type="email"  pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" #email="ngModel"
+       [(ngModel)]="model.Email" placeholder="Ex. john@example.com" required />
+       <mat-error>
+        {{"Contact.Error2" | translate}}<strong>{{"Contact.Required" | translate}}</strong>
+       </mat-error>
+       </mat-form-field>
+      <!--  <div *ngIf="email.errors.required">
+         
+       </div> -->
+    
+     <mat-form-field appearance="standard">
+       <mat-label> {{"Contact.MOBILE" | translate}}</mat-label>
+       <input matInput name="mobileNumber"  #mobileNumber="ngModel" [(ngModel)]="model.MobileNumber" required  />
+       <mat-error>
+         {{"Contact.Error1" | translate}} <strong>>{{"Contact.Required" | translate}}</strong>
+         </mat-error>
+     </mat-form-field>
+  
+ 
+  
+   </form>
+ 
+ 
+   <div class="text-center mt-3 pt-1" (click)="updateName()">
+     <a class="mt-3"><button type="button" class="btn btn-primary" [disabled]="email.invalid || mobileNumber.invalid"> {{"Contact.BUTTON1" | translate}}</button></a>
+     <!-- <a class="mt-5" routerLink="/tripDetails/{{status}}"><button type="button" class="btn"> {{"Contact.BUTTON1" | translate}}</button></a> -->
+ </div>
+ 
+ 
+   

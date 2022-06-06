@@ -1,0 +1,29 @@
+.text-color-green {
+    color: rgb(40, 190, 40);
+    font-weight: 450;
+}
+
+.text-size-2 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.rotate-icon {
+    -ms-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.flightImg img {
+    width: 50px;
+    height: 50px;
+}
+
+table {
+    margin-top: 1%;
+    height: 120px;
+}
+hr{
+    opacity: 0.1;
+}

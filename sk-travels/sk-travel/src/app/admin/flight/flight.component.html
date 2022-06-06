@@ -1,0 +1,321 @@
+<div class="user-table">
+    <div class="container-fluid">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary d-lg-inline">Flights</h6>
+                <button type="button" class="btn btn-primary float-right" (click)="openModal(template,null)" *ngIf="addPermission">Add
+                    Flight</button>
+                <!-- Add flight Model -->
+                <ng-template #template>
+                    <div class="modal-header">
+                        <h4 class="modal-title pull-left text-primary">Add Flight</h4>
+                        <button type="button" class="btn-close" aria-label="Close" (click)="modalRef?.hide()">
+                            <span aria-hidden="true" class="visually-hidden">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="py-2">
+                            <form [formGroup]="flightForm" (ngSubmit)="addFlight()">
+
+                                <div class="container mt-2">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <label>Flight Name*</label>
+                                            <select class="form-select" aria-label="Default select example"
+                                                formControlName="flightid" (change)="nameCodeMap()" [ngClass]="
+                                            (flightForm.get('flightid')?.touched || 
+                                            flightForm.get('flightid')?.dirty) && 
+                                            flightForm.get('flightid')?.errors
+                                            ? 'is-invalid' 
+                                            : '' ||  (flightForm.get('flightid')?.touched || 
+                                            flightForm.get('flightid')?.dirty) && 
+                                            !flightForm.get('flightid')?.invalid
+                                            ? 'is-valid' 
+                                            : '' " required>
+                                            <option *ngFor="let flight of flights" value="{{flight.flightName}}"></option>
+                                                <option *ngFor="let flight of FlightNameCode;index as i"
+                                                    [value]="flight.flightId" [selected]="flight.flightName">
+                                                    {{flight.flightName}}</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-3">
+                                            <label>Flight Code*</label>
+                                            <select class="form-select" aria-label="Default select example"
+                                                formControlName="FlightCode" [ngClass]="
+                                            (flightForm.get('FlightCode')?.touched || 
+                                            flightForm.get('FlightCode')?.dirty) && 
+                                            flightForm.get('FlightCode')?.errors
+                                            ? 'is-invalid' 
+                                            : '' ||  (flightForm.get('FlightCode')?.touched || 
+                                            flightForm.get('FlightCode')?.dirty) && 
+                                            !flightForm.get('FlightCode')?.invalid
+                                            ? 'is-valid' 
+                                            : '' " required>
+                                                <option *ngFor="let flight of flightCode; index as i" [value]="flight"
+                                                    [selected]="flight[i] == 0">
+                                                    {{flight}}</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-3">
+                                            <label>Location From*</label>
+                                            <select class="form-select" aria-label="Default select example"
+                                                formControlName="location_from" [ngClass]="
+                                                (flightForm.get('location_from')?.touched || 
+                                                flightForm.get('location_from')?.dirty) && 
+                                                flightForm.get('location_from')?.errors
+                                                ? 'is-invalid' 
+                                                : '' ||  (flightForm.get('location_from')?.touched || 
+                                                flightForm.get('location_from')?.dirty) && 
+                                                !flightForm.get('location_from')?.invalid
+                                                ? 'is-valid' 
+                                                : '' " required>
+                                                <option *ngFor="let locationFrom of Location" [ngValue]="locationFrom"
+                                                    [selected]="locationFrom[1]">
+                                                    {{locationFrom.name}} ({{locationFrom.code}})</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-3">
+                                            <label>Location To*</label>
+                                            <select class="form-select" aria-label="Default select example"
+                                                formControlName="location_to" [ngClass]="
+                                            (flightForm.get('location_to')?.touched || 
+                                            flightForm.get('location_to')?.dirty) && 
+                                            flightForm.get('location_to')?.errors
+                                            ? 'is-invalid' 
+                                            : ''||  (flightForm.get('location_to')?.touched || 
+                                            flightForm.get('location_to')?.dirty) && 
+                                            !flightForm.get('location_to')?.invalid
+                                            ? 'is-valid' 
+                                            : '' " required>
+                                                <option *ngFor="let locationTo of Location;index as i"
+                                                    [ngValue]="locationTo" [selected]="locationTo">
+                                                    {{locationTo.name}} ({{locationTo.code}})</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="container mt-2">
+                                    <div class="row">
+
+                                        <div class="col-3 pt-1">
+                                            <label>Valid Till*</label>
+                                            <input class="form-control" formControlName="ValidTillDate" id="date"
+                                                type="date" [ngClass]="
+                                            (flightForm.get('ValidTillDate')?.touched || 
+                                            flightForm.get('ValidTillDate')?.dirty) && 
+                                            flightForm.get('ValidTillDate')?.hasError('required')
+                                            ? 'is-invalid' 
+                                            : ''||  (flightForm.get('ValidTillDate')?.touched || 
+                                            flightForm.get('ValidTillDate')?.dirty) && 
+                                            !flightForm.get('ValidTillDate')?.invalid
+                                            ? 'is-valid' 
+                                            : '' " required>
+                                        </div>
+
+                                        <div class="col-3 pt-1 ">
+                                            <label>Time*</label>
+                                            <input [ngxTimepicker]="timePicker" class="form-control"
+                                                formControlName="ValidTillTime" [ngClass]="
+                                            (flightForm.get('ValidTillTime')?.touched || 
+                                            flightForm.get('ValidTillTime')?.dirty) && 
+                                            flightForm.get('ValidTillTime')?.hasError('required')
+                                            ? 'is-invalid' 
+                                            : ''||  (flightForm.get('ValidTillTime')?.touched || 
+                                            flightForm.get('ValidTillTime')?.dirty) && 
+                                            !flightForm.get('ValidTillTime')?.invalid
+                                            ? 'is-valid' 
+                                            : '' " required>
+                                            <ngx-material-timepicker #timePicker>
+                                            </ngx-material-timepicker>
+                                        </div>
+
+                                        <div class="col-3 pt-1">
+                                            <label>Total Seat*</label>
+                                            <input type="number" class="form-control" formControlName="TotalSeat"
+                                                [ngClass]="
+                                                (flightForm.get('TotalSeat')?.touched || 
+                                                flightForm.get('TotalSeat')?.dirty) && 
+                                                flightForm.get('TotalSeat')?.hasError('required')
+                                                ? 'is-invalid' 
+                                                : '' ||  (flightForm.get('TotalSeat')?.touched || 
+                                                flightForm.get('TotalSeat')?.dirty) && 
+                                                !flightForm.get('TotalSeat')?.invalid
+                                                ? 'is-valid' 
+                                                : '' " required>
+                                        </div>
+
+                                        <div class="col-3 pt-1">
+                                            <label>Available Seat*</label>
+                                            <input type="number" class="form-control" formControlName="AvailableSeat"
+                                                [ngClass]="
+                                            (flightForm.get('AvailableSeat')?.touched || 
+                                            flightForm.get('AvailableSeat')?.dirty) && 
+                                            flightForm.get('AvailableSeat')?.hasError('required')
+                                            ? 'is-invalid' 
+                                            : '' ||  (flightForm.get('AvailableSeat')?.touched || 
+                                            flightForm.get('AvailableSeat')?.dirty) && 
+                                            !flightForm.get('AvailableSeat')?.invalid
+                                            ? 'is-valid' 
+                                            : '' " required>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="container ">
+                                    <div class="row">
+                                        <div class="col-3 d-flex mt-4">
+                                            <div class="form-check ">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="defaultCheck1" formControlName="RealTimeBooking"
+                                                    (change)="onCheckboxChange($event)">
+                                            </div>
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Real Time Booking
+                                            </label>
+                                        </div>
+
+                                        <div class="col-3 mt-3">
+                                            <div *ngIf="showAirlinePNR">
+                                                <input type="text" class="form-control " formControlName="PnrNo"
+                                                    required placeholder="Airline PNR" [ngClass]="
+                                                    (flightForm.get('PnrNo')?.touched || 
+                                                    flightForm.get('PnrNo')?.dirty) && 
+                                                    flightForm.get('PnrNo')?.hasError('required')
+                                                    ? 'is-invalid' 
+                                                    : '' ||  (flightForm.get('PnrNo')?.touched || 
+                                                    flightForm.get('PnrNo')?.dirty) && 
+                                                    !flightForm.get('PnrNo')?.invalid
+                                                    ? 'is-valid' 
+                                                    : '' ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="container mt-2">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <label>Select Days*</label>
+                                            <ng-multiselect-dropdown [placeholder]="'select days'"
+                                                [settings]="dropdownSettings" [data]="daysList"
+                                                formControlName="WeekDays"
+                                                (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)"
+                                                [ngClass]="
+                                            (flightForm.get('WeekDays')?.touched || 
+                                            flightForm.get('WeekDays')?.dirty) && 
+                                            flightForm.get('WeekDays')?.errors
+                                            ? 'is-invalid' 
+                                            : ''||  (flightForm.get('WeekDays')?.touched || 
+                                            flightForm.get('WeekDays')?.dirty) && 
+                                            !flightForm.get('WeekDays')?.invalid
+                                            ? 'is-valid' 
+                                            : '' " required>
+                                            </ng-multiselect-dropdown>
+                                            <div class="invalid-feedback">
+                                                {{ flightForm.get('WeekDays')?.errors ? "required" : ""}}
+                                            </div>
+                                        </div>
+
+                                        <div class="col-4">
+                                            <label>Departure Time*</label>
+                                            <input [ngxTimepicker]="departureTimePicker" class="form-control"
+                                                formControlName="DepartureTime" [ngClass]="
+                                            (flightForm.get('DepartureTime')?.touched || 
+                                            flightForm.get('DepartureTime')?.dirty) && 
+                                            flightForm.get('DepartureTime')?.hasError('required')
+                                            ? 'is-invalid' 
+                                            : ''||  (flightForm.get('DepartureTime')?.touched || 
+                                            flightForm.get('DepartureTime')?.dirty) && 
+                                            !flightForm.get('DepartureTime')?.invalid
+                                            ? 'is-valid' 
+                                            : '' " required>
+                                            <ngx-material-timepicker #departureTimePicker>
+                                            </ngx-material-timepicker>
+                                        </div>
+
+                                        <div class="col-4">
+                                            <label>Arrival Time*</label>
+                                            <input [ngxTimepicker]="arrivalTimePicker" class="form-control"
+                                                formControlName="ArrivalTime" [ngClass]="
+                                            (flightForm.get('ArrivalTime')?.touched || 
+                                            flightForm.get('ArrivalTime')?.dirty) && 
+                                            flightForm.get('ArrivalTime')?.hasError('required')
+                                            ? 'is-invalid' 
+                                            : ''||  (flightForm.get('ArrivalTime')?.touched || 
+                                            flightForm.get('ArrivalTime')?.dirty) && 
+                                            !flightForm.get('ArrivalTime')?.invalid
+                                            ? 'is-valid' 
+                                            : '' " required>
+                                            <ngx-material-timepicker #arrivalTimePicker>
+                                            </ngx-material-timepicker>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row text-center mt-2 float-right">
+                                    <div class="button">
+                                        <button type="submit" class="btn btn-primary"
+                                            [disabled]="!flightForm.valid">Save</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar table-hover">
+                    <table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
+                        <thead class="thead-dark text-center">
+                            <tr>
+                                <th>Flight Name</th>
+                                <th>Flight Code</th>
+                                <th>Flight Class</th>
+                                <th>Flight From</th>
+                                <th>Flight To</th>
+                                <th>Flight Type</th>
+                                <th>Total Seat</th>
+                                <th>Available Seat</th>
+                                <th>WeekDays</th>
+                                <th>ValidTillDate</th>
+                                <th>ValidTillTime</th>
+                                <th>Arrival Time</th>
+                                <th>Departure Time</th>
+                                <th class="text-center" style="width: 9%;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of flights;let i = index">
+                                <td>{{item.flightName}}</td>
+                                <td>{{item.flightCode}}</td>
+                                <td>{{item.flightClass}}</td>
+                                <td>{{item.flightFrom}}</td>
+                                <td>{{item.flightTo}}</td>
+                                <td>{{item.flightType}}</td>
+                                <td>{{item.totalSeat}}</td>
+                                <td>{{item.availableSeat}}</td>
+                                <td>{{item.weekDays}}</td>
+                                <td>{{item.vailidTillDate}}</td>
+                                <td>{{item.vailidTillTime}}</td>
+                                <td>{{item.arrivalTime}}</td>
+                                <td>{{item.departureTime}}</td>
+                                <td class="text-center">
+                                    <button class="action-button text-primary " data-toggle="tooltip" title="Edit"
+                                        (click)="openModal(template,i)"><i class="fas fa-pen" *ngIf="editPermission"></i></button>
+                                    <button class="action-button text-danger" data-toggle="tooltip" title="Delete"
+                                        (click)="deleteFlightById(i)" *ngIf="deletePermission"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+div.passport {
+    width: 295px;
+    height: 175px;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px 0 rgba(106, 114, 124, 0.22);
+    background-color: #e9e9e9;
+    margin: auto;
+    position: relative;
+  
+  }
+  
+  
+  div.contentPass {
+    padding: 1.5rem 0rem 0 0rem;
+  }
+  
+  div.imgPass {
+    width: 83px;
+    height: 100px;
+    margin: 0 16px 0 20px;
+    // border: solid 2.4px blue;
+    border-radius: 10px;
+  
+  }
+  
+  div.details {
+    width: 115px;
+    height: 88px;
+    margin: 5px 16px 0 0;
+  
+  
+  }
+  
+  
+  div.bottomPass {
+    position: absolute;
+    width: 298px;
+    height: 36px;
+    background-color: white;
+    border-radius: 0px 0px 10px 10px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+  }
+  
+  
+  button {
+    width: 90%;
+    background-color: #18206c !important;
+    color: white;
+    border: solid 1px #18206c;
+    border-radius: 10px;
+    margin-bottom: auto;
+    font-family: Barlow-Regular;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  
+  
+  div.show {
+    padding: 3rem 1.5rem 1.5rem 3rem;
+    position: relative;
+  }
+  
+  div.mrz {
+    width: 256px;
+    height: 18px;
+    margin: auto;
+  }
+  
+  
+  #container {
+    position: relative;
+  }
+  
+  img.pass {
+    position: absolute;
+    z-index: 10;
+    left: 110px;
+    bottom: 150px;
+  }
+  
+  .profile {
+    width: 80px;
+    margin-top: 10px;
+  }

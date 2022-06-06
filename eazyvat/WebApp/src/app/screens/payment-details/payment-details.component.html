@@ -1,0 +1,8 @@
+<div class="paymentDetails mt-4 mb-4 " *ngFor="let data of cardData" [value]="data.id">
+  <div class=" d-flex flex-row justify-content-between" style="padding:2%;">
+    <img src="../../assets/elements/logo-mastercard.png" width="33px" height="19px">
+    <span class="font-medium">{{data.masked}}</span>
+    <span class="font-medium">{{data.expiryMonth}}/{{data.expiryYear}}</span>
+    <a (click)="onClickRemoveCreditCard(data)"><img src="../../assets/elements/elements-close-for-credit.png"></a>
+  </div>
+</div>

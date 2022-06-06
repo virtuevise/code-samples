@@ -1,0 +1,39 @@
+img {
+    display: block;
+    height: 40px;
+    width: 50px;
+}
+
+.btn-check:focus+.btn,
+.btn:focus {
+    box-shadow: none !important;
+}
+
+.btn:focus,
+.btn.focus {
+    box-shadow: none !important;
+}
+
+.btn-nav {
+    padding: 0px 10px !important;
+    height: 40px !important;
+}
+
+::ng-deep .modal-custom-style {
+    max-width: 500px !important;
+    max-height: 600px !important;
+}
+
+i:hover {
+    cursor: pointer;
+    color: black !important;
+}
+.pt{
+    padding-top: 12px;
+}
+.user-name{
+    padding-top: 2.8%;
+}
+.logout-icon{
+    padding-top: 12%;
+}

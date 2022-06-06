@@ -1,0 +1,102 @@
+<div class="user-table">
+    <div class="container-fluid">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary d-lg-inline">Flight Details</h6>
+                <button type="button" class="btn btn-primary float-right" (click)="openModal(template,null)" *ngIf="addPermission">Add
+                    Flight Details</button>
+                <!-- Add flight details Model -->
+                <ng-template #template>
+                    <div class="modal-header">
+                        <h4 class="modal-title pull-left text-primary">Add Flight Details</h4>
+                        <button type="button" class="btn-close" aria-label="Close" (click)="modalRef?.hide()">
+                            <span aria-hidden="true" class="visually-hidden">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form [formGroup]="detailsForm" (ngSubmit)="addDetails()" autocomplete="off">
+
+                            <div>
+                                <label>Flight Name</label>
+                                <select class="form-select" aria-label="Default select example"
+                                    formControlName="Flight_Name" [ngClass]="
+                                (detailsForm.get('Flight_Name')?.touched || 
+                                detailsForm.get('Flight_Name')?.dirty) && 
+                                detailsForm.get('Flight_Name')?.errors
+                                ? 'is-invalid' 
+                                : '' ||  (detailsForm.get('Flight_Name')?.touched || 
+                                detailsForm.get('Flight_Name')?.dirty) && 
+                                !detailsForm.get('Flight_Name')?.invalid
+                                ? 'is-valid' 
+                                : '' " required>
+                                    <option *ngFor="let Flight_Name of flights" [ngValue]="Flight_Name.flight_name">
+                                        {{Flight_Name.flight_name}}</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group pt-2">
+                                <label>Flight Code</label>
+                                <tag-input maxlength="50" [identifyBy]="'value'" type="submit" [displayBy]="'id'"
+                                    [clearOnBlur]="true" formControlName="Flight_Code"
+                                    secondaryPlaceholder="Enter Flight Code" [ngClass]="(detailsForm.get('flight_code')?.touched 
+                                || 
+                                detailsForm.get('Flight_Code')?.dirty) && 
+                                detailsForm.get('Flight_Code')?.hasError('required')
+                                ? 'is-invalid' 
+                                : '' ||
+                                (detailsForm.get('Flight_Code')?.touched || 
+                                detailsForm.get('Flight_Code')?.dirty) && 
+                                !detailsForm.get('Flight_Code')?.invalid
+                                ? 'is-valid' 
+                                : '' " required>
+                                </tag-input>
+                                <div class="invalid-feedback">
+                                    {{ detailsForm.get('Flight_Code')?.hasError('required') ? "required" : ""}}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Flight Type</label>
+                                <input type="text" class="form-control" formControlName="Flight_Type">
+                            </div>
+
+                            <div class="text-center pt-3">
+                                <button type="submit" class="btn btn-primary"
+                                    [disabled]="!(detailsForm.valid)">Submit</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </ng-template>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar table-hover">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>flight Name</th>
+                                <th>flight Code</th>
+                                <th>flight Type</th>
+                                <th class="text-center" style="width: 9%;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of allDetails;let i = index">
+                                <td>{{item.flightName}}</td>
+                                <td>{{item.flightCode}}</td>
+                                <td>{{item.flightType}}</td>
+                                <td class="text-center">
+                                    <button class="action-button text-primary " data-toggle="tooltip" title="Edit"
+                                        (click)="openModal(template,i)" *ngIf="editPermission"><i class="fas fa-pen"></i></button>
+                                    <button class="action-button text-danger" data-toggle="tooltip" title="Delete"
+                                        (click)="deleteDetails(i)" *ngIf="deletePermission"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

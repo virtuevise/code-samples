@@ -1,0 +1,18 @@
+<div class="d-flex flex-column justify-content-around">
+    <h3 class="font-subtitle">{{"AddInvoice.HEADER" | translate}}</h3>
+</div>
+<div class="backgroung mt-3 mp-2">
+    <div class="d-flex flex-column justify-content-around">
+        <div class="TakePic">
+            <video *ngIf="isTakePicture"></video>
+        </div>
+        <div *ngIf="isSavePicture" class="text-center"><u><a class="font-link-bold">{{"AddInvoice.ActionText" |
+                    translate}}</a></u></div>
+    </div>
+</div>
+<div class="text-center mt-5">
+    <a class="mt-3" *ngIf="isTakePicture"><button type="button" class="btn btn-primary"
+            (click)="onTakePictureInvoice()">{{"AddInvoice.Button1" | translate}}</button></a>
+    <a class="mt-3" *ngIf="isSavePicture"><button type="button" class="btn btn-primary">{{"AddInvoice.Button2" |
+            translate}}</button></a>
+</div>

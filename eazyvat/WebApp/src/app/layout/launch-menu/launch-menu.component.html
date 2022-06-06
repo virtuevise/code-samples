@@ -1,0 +1,31 @@
+<footer class="d-flex flex-row justify-content-around  align-items-center">
+
+  <a class="p-3" (click)="onClickHome()">
+    <img class="home" src="../../../assets/icons/icons-home-fill@2x.png" *ngIf="user.isShowIconHomeBold" alt=""> 
+    <img class="home" src="../../../assets/icons/icons-home@2x.png" *ngIf="!user.isShowIconHomeBold" alt="">
+    <span>{{"StickyMenu.HOME" | translate}}</span>
+  </a>
+ 
+  <a class="p-2" id="container" (click)="onClickPurchases()">
+    <img class="refunds" src="../../../assets/icons/icons-my-refunds-fill@2x.png" *ngIf="user.isShowIconPurBold"/>
+    <img class="refunds" src="../../../assets/icons/icons-my-refunds@2x.png" *ngIf="!user.isShowIconPurBold" />
+    <div  class="notification text-center" *ngIf="isShowNewPurchases">{{countNewPurchases}}</div> 
+    <span>{{"StickyMenu.PURCHASES" | translate}}</span>
+  </a>
+  
+  <a class="p-3" (click)="onClickShop()">
+    <img class="shopVatFree"  src="../../../assets/icons/icons-shop-vat-free-fill@2x.png" *ngIf="user.isShowIconShopBold" alt="">
+    <img class="shopVatFree"  src="../../../assets/icons/icons-shop-vat-free@2x.png" *ngIf="!user.isShowIconShopBold" alt="">
+    <span>{{"StickyMenu.SHOPS" | translate}}</span>
+  </a>
+  <a class="p-3" (click)="onClickProfil()">
+    <img class="profile" src="../../../assets/icons/icons-profile-fill@2x.png" *ngIf="user.isShowIconProBold" alt="">
+    <img class="profile" src="../../../assets/icons/icons-profile@2x.png" *ngIf="!user.isShowIconProBold" alt="">
+    <span>{{"StickyMenu.PROFILE" | translate}}</span>
+  </a>
+
+
+
+</footer>
+
+
